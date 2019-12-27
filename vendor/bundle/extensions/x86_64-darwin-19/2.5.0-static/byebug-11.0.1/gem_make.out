@@ -1,0 +1,19 @@
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/byebug-11.0.1/ext/byebug
+/Users/tokeshi/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20191227-6102-y9ae2e.rb extconf.rb
+creating Makefile
+
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/byebug-11.0.1/ext/byebug
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 byebug.bundle ./.gem.20191227-6102-1y8rftn/byebug

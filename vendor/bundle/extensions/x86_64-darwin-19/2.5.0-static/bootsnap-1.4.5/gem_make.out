@@ -1,0 +1,15 @@
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
+/Users/tokeshi/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20191227-6102-1o7m2sa.rb extconf.rb
+creating Makefile
+
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" clean
+
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR="
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/bootsnap-1.4.5/ext/bootsnap
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20191227-6102-150hpsw/bootsnap
