@@ -1,7 +1,7 @@
 <h1>投稿</h1>
 <% @posts.each do |post| %>
-<p><%= link_to post.title,post_path(post) %></p>
-<br>
-<p><%= link_to post.content,post_path(post) %></p>
+<p>タイトル：<%= link_to post.title,post_path(post) %></p>
+
+<p>コンテンツ：<%= link_to post.content,post_path(post) %></p>
 <br>
 <% end %>

@@ -4,3 +4,4 @@
 <p><%= @post.content %></p>
 <br>
 <p><%= link_to "編集する", edit_post_path(@post) %></p>
+<p><%= link_to "削除する", post_path(@post),method: :delete %></p>
