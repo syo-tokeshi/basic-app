@@ -1,0 +1,8 @@
+<h1>ユーザー一覧</h1>
+<% @users.each do |user| %>
+<p>ユーザー：<%= link_to user.id,users_path %></p>
+<p>名前：<%= link_to user.name,users_path %></p>
+<p>Eメール：<%= link_to user.email,users_path %></p>
+<p>パスワード：<%= link_to user.password,users_path %></p>
+<br>
+<% end %>

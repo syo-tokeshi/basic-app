@@ -10,9 +10,19 @@
   </head>
 
   <body>
-  <h1><%= link_to "投稿一覧",posts_path %></h1>
-
-  <h1><%= link_to "新規投稿",new_post_path %></h1>
+    <% if session[:user_id] %>
+    <h2>ユーザーID:<%= session[:user_id] %></h2>
+    <h2><%= link_to "ユーザー一覧",posts_path %></h2>
+    <h2><%= link_to "投稿一覧",posts_path %></h2>
+    <h2><%= link_to "新規投稿",new_post_path %></h2>
+    <h2><%= link_to "ログアウト",logout_path,method: :post %></h2>
+    <% else %>
+    <h2><%= link_to "新規登録",new_user_path %></h2>
+    <h2><%= link_to "ログイン",login_path %></h2>
+    <% end %>
+    <% if flash[:notice] %>
+    <h2><%= flash[:notice] %></h2>
+    <% end %>
     <%= yield %>
   </body>
 </html>
