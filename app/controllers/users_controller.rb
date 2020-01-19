@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user,{only:[:show,:index]}
-
+  before_action :ensure_correct_user,{only:[:show]}
   def new
     @user = User.new
   end
@@ -17,13 +17,32 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.page(params[:page]).per(10)
+    @users = User.all.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def login_form
     @user = User.new
   end
+  def show
+    @user = User.find(params[:id])
+  end
 
+  def edit
+    @user = User.find_by(id:params[:id])
+  end
+
+  def update
+    user = User.find(params[:id])
+    user.update(user_params)
+    redirect_to users_path
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    user.destroy
+   session[:user_id] = nil
+    redirect_to users_path
+  end
   def login
     user = User.find_by(email:params[:email],password:params[:password])
     if user
@@ -41,8 +60,13 @@ class UsersController < ApplicationController
     flash[:notice] = "ログアウトしました"
     redirect_to users_path
   end
+
+
+
   private
   def user_params
     params.require(:user).permit(:name,:email,:password)
   end
+
+
 end

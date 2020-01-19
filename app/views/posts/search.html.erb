@@ -1,0 +1,24 @@
+<%= form_tag('/posts/search', method: :get) do %>
+  <%= label_tag :タイトル %>
+  <%= text_field_tag :search_title %>
+  <%= label_tag :内容 %>
+  <%= text_field_tag :search_content %>
+  <%= submit_tag '検索' %>
+<% end %>
+<br>
+<table class="table table-hover text-success">
+  <tbody>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

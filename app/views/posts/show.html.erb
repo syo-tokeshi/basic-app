@@ -1,6 +1,9 @@
 <h1>投稿詳細</h1>
 <p>タイトル：<%= @post.title %></p>
 <p>内容：<%= @post.content %></p>
+<% if @post.image? %>
+<p>写真：<%= image_tag @post.image_url(:thumb) %></p>
+<% end %>
 <% if @post.user_id == @current_user.id %>
 <p><%= link_to "編集する", edit_post_path(@post) %></p>
 <p><%= link_to "削除する", post_path(@post),method: :delete %></p>

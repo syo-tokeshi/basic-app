@@ -13,11 +13,12 @@
 <!-- <div class="container mt-5"> -->
     <% if session[:user_id] %>
     <ul class="link_top container">
-     <li>ユーザーID:<%= session[:user_id] %></li>
+     <li>ユーザーID:<%= @current_user.name %></li>
      <li><%= link_to "ホーム",home_path %></li>
      <li><%= link_to "ユーザー一覧",users_path %></li>
      <li><%= link_to "投稿一覧",posts_path %></li>
      <li><%= link_to "新規投稿",new_post_path %></li>
+     <li><%= link_to "投稿検索", posts_search_path %></li>
      <li><%= link_to "ログアウト",logout_path,method: :post %></li>
     <% else %>
      <li><%= link_to "新規登録",new_user_path %></li>
@@ -25,7 +26,7 @@
     </ul>
     <% end %>
     <% if flash[:notice] %>
-    <h2><%= flash[:notice] %></h2>
+    <h1 class="text-danger text-center display-3"><%= flash[:notice] %></h1>
     <% end %>
     </div>
     <div class="container text-center">

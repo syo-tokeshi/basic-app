@@ -1,24 +1,7 @@
-# README
+・掲示板アプリを想定して作りました。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+・登録したユーザーは好きように投稿できてそれに対してコメントできます。
 
-Things you may want to cover:
+・投稿した本人以外は投稿を編集できないようになっています。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+・ログイン機能とページネーション、bootstrap,gemの'rails-i18n'をインストールしエラーメッセージの日本語化、等様々な機能を搭載しました
