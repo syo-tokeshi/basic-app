@@ -1,6 +1,9 @@
+<% @user.errors.full_messages.each do |message| %>
+            <h2><%= message %></h2>
+        <% end %>
 <%= form_for @user do |f| %>
 <h1>名前：<%= f.text_field :name %></h1>
 <h1>メール：<%= f.text_field :email %></h1>
 <h1>パスワード：<%= f.text_field :password %></h1>
-<%= f.submit %>
+<%= f.submit class:"btn btn-info form-control w-25" %>
 <% end %>

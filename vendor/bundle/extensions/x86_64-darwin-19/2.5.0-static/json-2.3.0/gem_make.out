@@ -1,0 +1,13 @@
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/json-2.3.0/ext/json
+/Users/tokeshi/.rbenv/versions/2.5.7/bin/ruby -r ./siteconf20191229-64920-yq8agz.rb extconf.rb
+creating Makefile
+
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/json-2.3.0/ext/json
+make "DESTDIR=" clean
+
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/json-2.3.0/ext/json
+make "DESTDIR="
+make: Nothing to be done for `all'.
+
+current directory: /Users/tokeshi/basic_app/vendor/bundle/gems/json-2.3.0/ext/json
+make "DESTDIR=" install

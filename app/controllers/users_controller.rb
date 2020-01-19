@@ -11,24 +11,29 @@ class UsersController < ApplicationController
     session[:user_id] = @user.id
     flash[:notice] = "登録しました"
     redirect_to users_path
-  else
-    flash[:notice] = "登録に失敗しました"
+    else
     render new_user_path
-  end
+    end
   end
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(10)
   end
+
   def login_form
     @user = User.new
   end
 
   def login
     user = User.find_by(email:params[:email],password:params[:password])
+    if user
     session[:user_id] = user.id
     flash[:notice] = "ログインしました"
     redirect_to users_path
+    else
+    redirect_to login_path
+    flash[:notice] = "正しい値を入力してください"
+    end
   end
 
   def logout

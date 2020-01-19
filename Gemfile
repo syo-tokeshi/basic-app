@@ -5,7 +5,10 @@ ruby '2.5.7'
 gem "bootstrap",'~> 4.1.1'
 gem 'jquery-rails'
 gem "ransack"
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'kaminari'
+gem 'rails-i18n', '~> 5.1'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -61,4 +64,3 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

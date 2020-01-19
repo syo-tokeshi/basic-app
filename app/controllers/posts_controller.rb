@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_user
+  before_action :ensure_correct_user,{only:[:edit,:destroy,:update]}
+
   def index
-    @posts = Post.all
+      @posts = Post.page(params[:page]).per(10)
   end
 
   def new
@@ -10,8 +12,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
+    if @post.save
     redirect_to posts_path
+    else
+      render new_post_path
+    end
   end
 
   def show
@@ -37,5 +42,12 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title,:content)
+  end
+  def ensure_correct_user
+      @post = Post.find_by(id: params[:id])
+      if @post.user_id != @current_user.id
+        flash[:notice] = "権限がありません"
+        redirect_to posts_path
+      end
   end
 end

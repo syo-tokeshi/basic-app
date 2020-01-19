@@ -1,21 +1,22 @@
 <h1>投稿詳細</h1>
 <p>タイトル：<%= @post.title %></p>
 <p>内容：<%= @post.content %></p>
+<% if @post.user_id == @current_user.id %>
 <p><%= link_to "編集する", edit_post_path(@post) %></p>
 <p><%= link_to "削除する", post_path(@post),method: :delete %></p>
-
+<% end %>
+<h4>コメント一覧</h4>
 <% if @post.comments.any? %>
 <ul>
   <% @post.comments.each do |comment| %>
-  <li>コメント：<%= comment.body %></li>
-<%= link_to "削除する", post_comment_path(@post,comment),method: :delete %>
+  <li>コメント：<%= comment.body %>: <%= link_to "削除する", post_comment_path(@post,comment),method: :delete %></li>
   <% end %>
 </ul>
 <% end %>
 
-
+<br>
 <h2>コメントする</h2>
 <%= form_for ([@post,@post.comments.build]) do |f| %>
 <h1>コメント内容：<%= f.text_field :body %></h1>
-<%= f.submit %>
+<%= f.submit :"投稿",class:"btn btn-info" %>
 <% end %>
