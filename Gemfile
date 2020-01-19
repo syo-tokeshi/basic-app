@@ -6,7 +6,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'ransack'
-gem "bootstrap",'~> 4.1.1'
+gem "bootstrap"
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'rails-i18n', '~> 5.1'
@@ -64,5 +64,5 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
-gem 'pg', group: :production 
+gem 'pg', group: :production
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
