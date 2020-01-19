@@ -7,7 +7,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'ransack'
 gem "bootstrap"
-gem 'jquery-rails'
+gem 'jquery-rails', '4.3.1'
 gem 'kaminari'
 gem 'rails-i18n', '~> 5.1'
 gem 'rails', '~> 5.2.1'
