@@ -1,25 +1,26 @@
-<h1>投稿詳細</h1>
-<p>タイトル：<%= @post.title %></p>
-<p>内容：<%= @post.content %></p>
-<% if @post.image? %>
-<p>写真：<%= image_tag @post.image_url(:thumb) %></p>
-<% end %>
+<h1 class="display-4">投稿詳細</h1>
+<br>
+<h3>タイトル：<%= @post.title %></h3>
+<h3>内容：<%= @post.content %></h3>
 <% if @post.user_id == @current_user.id %>
-<p><%= link_to "編集する", edit_post_path(@post) %></p>
-<p><%= link_to "削除する", post_path(@post),method: :delete %></p>
+<%= link_to "編集する", edit_post_path(@post),class:"mr-1" %>
+<%= link_to "削除する", post_path(@post),method: :delete %>
 <% end %>
+<br>
+<br>
 <h4>コメント一覧</h4>
 <% if @post.comments.any? %>
 <ul>
   <% @post.comments.each do |comment| %>
-  <li>コメント：<%= comment.body %>: <%= link_to "削除する", post_comment_path(@post,comment),method: :delete %></li>
+  <li ><span class="post-comment">コメント：<%= comment.body %></span><%= link_to "編集する", edit_post_comment_path(@post,comment),method: :get,class:"mx-3" %><%= link_to "削除する", post_comment_path(@post,comment),method: :delete %></li>
   <% end %>
 </ul>
+
 <% end %>
 
 <br>
 <h2>コメントする</h2>
 <%= form_for ([@post,@post.comments.build]) do |f| %>
 <h1>コメント内容：<%= f.text_field :body %></h1>
-<%= f.submit :"投稿",class:"btn btn-info" %>
+<%= f.submit :"投稿",class:"btn btn-info form-control w-25 " %>
 <% end %>

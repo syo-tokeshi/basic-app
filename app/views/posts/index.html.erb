@@ -1,15 +1,30 @@
 <%= form_tag('/posts', method: :get) do %>
-  <%= label_tag :内容 %>
+  <%= label_tag :内容検索 %>
   <%= text_field_tag :search_content %>
-  <%= submit_tag '検索' %><%= link_to 'Clear', posts_path %>
+  <%= submit_tag '検索',class:"btn btn-info mr-1" %><%= link_to 'Clear', posts_path,class:"btn btn-warning" %>
 <% end %>
-
-<h1>投稿一覧</h1>
-<% @posts.each do |post| %>
-<p>タイトル：<%= link_to post.title,post_path(post) %></p>
-<p>コンテンツ：<%= link_to post.content,post_path(post) %></p>
 
 <br>
-<% end %>
+<h1>投稿一覧</h1>
+<table class="table table-hover text-success">
+  <tbody>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>内容</th>
+        <th>投稿時間</th>
+        <th>コメント数</th>
+      </tr>
+    </thead>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= link_to post.title,post_path(post) %></td>
+        <td><%= link_to post.content,post_path(post) %></td>
+        <td><%= link_to post.created_at.strftime("%Y-%m-%d %H:%M"),post_path(post) %></td>
+        <td><%= link_to post.comments.count,post_path(post) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= paginate @posts %>

@@ -1,6 +1,9 @@
 class Post < ApplicationRecord
-  has_many :comments,dependent: :destroy
+
+  include ActiveModel::Model  # ←postsコントローラーで使用
+attr_accessor :search_content
+
+  has_many :comments,dependent: :destroy #ポストはたくさんのコメントとを持つ
   validates  :title,:content, {presence:true}
-  # mount_uploader :image, ImageUploader
-  # has_one_attached :image
+
 end

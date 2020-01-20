@@ -1,0 +1,5 @@
+<h2>編集する</h2>
+<%= form_for @comment, url:post_comment_path(@post,@comment) do |f| %>
+<h1>コメント内容：<%= f.text_field :body %></h1>
+<%= f.submit :"送信",class:"btn btn-info" %>
+<% end %>

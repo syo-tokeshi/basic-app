@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  # ログインしていないとユーザー情報を見れないように設定
   before_action :authenticate_user,{only:[:show,:index]}
+  # 登録した本人しか自分のプロフィールを編集、閲覧出来ないように設定
   before_action :ensure_correct_user,{only:[:show]}
+
   def new
     @user = User.new
   end
@@ -61,12 +64,9 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-
-
   private
   def user_params
     params.require(:user).permit(:name,:email,:password)
   end
-
 
 end
