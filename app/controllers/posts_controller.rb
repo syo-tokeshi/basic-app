@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   before_action :ensure_correct_user,{only:[:edit,:destroy,:update]}
 
   def index
-    @posts = Post.all.order(created_at: :desc).page(params[:page]).per(10)  
+    if params[:search_content]
+    @posts = Post.where('content Like ?',"%#{params[:search_content]}%").all.order(created_at: :desc).page(params[:page]).per(10)
+    else
+      @posts = Post.all.order(created_at: :desc).page(params[:page]).per(10)
+    end
   end
 
   def new
