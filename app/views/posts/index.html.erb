@@ -9,7 +9,7 @@
 <p>タイトル：<%= link_to post.title,post_path(post) %></p>
 <p>コンテンツ：<%= link_to post.content,post_path(post) %></p>
 <% if post.image? %>
-<p>写真：<%= image_tag post.image_url(:thumb) %></p>
+<p>写真：<%= image_tag post.image_url(post) %></p>
 <% end %>
 <br>
 <% end %>

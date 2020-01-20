@@ -42,14 +42,17 @@ class PostsController < ApplicationController
     post.destroy
     redirect_to posts_path
   end
+  
   def search
     post_search = PostSearch.new(params_post_search)
     @posts = post_search.execute
   end
+
   private
   def post_params
     params.require(:post).permit(:title,:content,:image)
   end
+
   def params_post_search
   params.permit(:search_title, :search_content)
   end
