@@ -1,9 +1,30 @@
 <h1>ユーザー詳細</h1>
 <p>ユーザー名：<%= @user.name %></p>
 <p>email:<%= @user.email %></p>
-<p>パスワード:<%= @user.password %></p>
-
 <% if @user.id == @current_user.id %>
-  <p><%= link_to "編集する", edit_user_path(@user) %></p>
-  <p><%= link_to "削除する", user_path(@user),method: :delete,data: {confirm: "削除して大丈夫ですか?"}  %></p>
+  <p><%= link_to "プロフィールを編集する", edit_user_path(@user) %></p>
+  <p><%= link_to "登録を削除する", user_path(@user),method: :delete,data: {confirm: "削除して大丈夫ですか?"}  %></p>
 <% end %>
+<h1>投稿内容</h1>
+<table class="table table-hover ">
+  <% @user.posts.each do |post| %>
+  <tbody >
+    <thead>
+      <tr class="text-danger">
+        <th>タイトル</th>
+        <th>内容</th>
+        <th>投稿時間</th>
+        <th>コメント数</th>
+        <th>投稿を確認する</th>
+      </tr>
+    </thead>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+        <td><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+        <td><%= post.comments.count %></td>
+        <td><%= link_to "click!",post_path(post) %></td>
+      </tr>
+  </tbody>
+  <% end %>
+</table>

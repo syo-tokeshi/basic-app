@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   # ログインしていないとユーザー情報を見れないように設定
   before_action :authenticate_user,{only:[:show,:index]}
-  # 登録した本人しか自分のプロフィールを編集、閲覧出来ないように設定
-  before_action :ensure_correct_user,{only:[:show]}
+  # 登録した本人しか自分のプロフィールを編集、削除出来ないように設定
+  before_action :ensure_correct_user,{only:[:edit,:update,:destroy]}
 
   def new
     @user = User.new
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   def login_form
     @user = User.new
   end
+
   def show
     @user = User.find(params[:id])
   end
