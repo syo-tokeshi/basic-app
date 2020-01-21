@@ -12,8 +12,7 @@ class UsersController < ApplicationController
     @user  = User.new(user_params)
     if @user.save
     session[:user_id] = @user.id
-    flash[:notice] = "登録しました"
-    redirect_to users_path
+    redirect_to home_path
     else
     render new_user_path
     end
@@ -38,6 +37,7 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.update(user_params)
+    flash[:notice] = "変更されました"
     redirect_to users_path
   end
 
@@ -45,14 +45,14 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     user.destroy
    session[:user_id] = nil
+   flash[:notice] = "退会されました"
     redirect_to users_path
   end
   def login
     user = User.find_by(email:params[:email],password:params[:password])
     if user
     session[:user_id] = user.id
-    flash[:notice] = "ログインしました"
-    redirect_to users_path
+    redirect_to home_path
     else
     redirect_to login_path
     flash[:notice] = "正しい値を入力してください"
@@ -61,7 +61,6 @@ class UsersController < ApplicationController
 
   def logout
     session[:user_id] = nil
-    flash[:notice] = "ログアウトしました"
     redirect_to users_path
   end
 

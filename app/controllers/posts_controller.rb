@@ -19,6 +19,7 @@ class PostsController < ApplicationController
     post = Post.new(post_params)
     post.user_id =  @current_user.id
     if post.save
+    flash[:notice] = "投稿されました"
     redirect_to posts_path
     else
       flash[:notice] = "両方とも入力してください"
@@ -37,12 +38,14 @@ class PostsController < ApplicationController
   def update
     post = Post.find(params[:id])
     post.update(post_params)
+    flash[:notice] = "変更されました"
     redirect_to posts_path
   end
 
   def destroy
     post = Post.find(params[:id])
     post.destroy
+    flash[:notice] = "削除されました"
     redirect_to posts_path
   end
 
