@@ -12,10 +12,9 @@
 <br>
 <% end %>
 <table class="table table-hover ">
-  <% @user.posts.each do |post| %>
   <tbody >
     <thead>
-      <tr class="text-danger">
+      <tr class="text-success">
         <th>タイトル</th>
         <th>内容</th>
         <th>投稿時間</th>
@@ -24,6 +23,7 @@
       </tr>
     </thead>
       <tr>
+       <% @user.posts.each do |post| %>
         <td><%= post.title %></td>
         <td><%= post.content %></td>
         <td><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></td>
@@ -31,5 +31,5 @@
         <td><%= link_to "click!",post_path(post) %></td>
       </tr>
   </tbody>
-  <% end %>
+       <% end %>
 </table>
