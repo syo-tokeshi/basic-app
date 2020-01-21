@@ -1,4 +1,4 @@
-*ポートフォリオ名 : basic_app*
+*ポートフォリオ名 : basic_app
 
 色んなユーザーが自由に書き込んだりそれにコメントできるアプリです。
 
@@ -12,10 +12,15 @@
 # Requirement
 
 ruby '2.5.7'
+
 gem 'rails', ' 5.2.1'
+
 gem "bootstrap"
+
 gem 'jquery-rails', '4.3.1'
+
 gem 'kaminari'
+
 gem 'rails-i18n', ' 5.1'
 
 githubのurlとherokuのurlです。
