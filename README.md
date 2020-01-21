@@ -3,7 +3,8 @@
 色んなユーザーが自由に書き込んだりそれにコメントできるアプリです
 
 # DEMO
-<img width="1440" alt="スクリーンショット 2020-01-21 14 47 58" src="https://user-images.githubusercontent.com/54713809/72792576-9e706a00-3c7c-11ea-86ef-ad20e8a68167.png">
+<img width="1440" alt="スクリーンショット 2020-01-21 14 47 58" src="https://user-images.githubusercontent.com/54713809/72794571-92d27280-3c7f-11ea-9d7b-de5935993689.png">
+
 
 # 特徴
 
