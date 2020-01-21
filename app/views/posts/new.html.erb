@@ -1,8 +1,6 @@
-<% @post.errors.full_messages.each do |message| %>
-            <h2><%= message %></h2>
-        <% end %>
+
 <%= form_for @post do |f| %>
-<h1>タイトル：<%= f.text_field :title %></h1>
-<h1>コンテンツ：<%= f.text_field :content %></h1>
+  <h1>タイトル：<%= f.text_field :title %></h1>
+  <h1>コンテンツ：<%= f.text_field :content %></h1>
 <%= f.submit :"投稿する",class:"btn btn-info form-control w-25" %>
 <% end %>

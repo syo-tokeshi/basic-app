@@ -1,6 +1,6 @@
 <%= form_for @user , url:user_path(@user) do |f| %>
-<h1>名前<%= f.text_field :name %></h1>
-<h1>Eメール<%= f.text_field :email %></h1>
-<h1>パスワード<%= f.text_field :password %></h1>
+  <h1>名前<%= f.text_field :name %></h1>
+  <h1>Eメール<%= f.text_field :email %></h1>
+  <h1>パスワード<%= f.text_field :password %></h1>
 <%= f.submit %>
 <% end %>

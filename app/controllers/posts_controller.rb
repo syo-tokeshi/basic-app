@@ -3,6 +3,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user #←ログインしている人しか投稿を閲覧出来ないように設定
   before_action :ensure_correct_post,{only:[:edit,:destroy,:update]}
 
+  def new
+    @post = Post.new
+  end
+
   def index
     if params[:search_content]   #部分一致でcontentを絞り込むためのwhere文
     @posts = Post.where('content Like ?',"%#{params[:search_content]}%").all.order(created_at: :desc).page(params[:page]).per(10)
@@ -11,17 +15,14 @@ class PostsController < ApplicationController
     end
   end
 
-  def new
-    @post = Post.new
-  end
-
   def create
-    @post = Post.new(post_params)
-    @post.user_id =  @current_user.id
-    if @post.save
+    post = Post.new(post_params)
+    post.user_id =  @current_user.id
+    if post.save
     redirect_to posts_path
     else
-      render new_post_path
+      flash[:notice] = "両方とも入力してください"
+      redirect_to new_post_path
     end
   end
 

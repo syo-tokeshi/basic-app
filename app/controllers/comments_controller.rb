@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
     post = Post.find_by(params[:post_id])
     comment = Comment.find(params[:id])
     comment.update(comment_params)
-    redirect_to posts_path
+    redirect_to post_path(comment.post_id)
   end
 
   def destroy

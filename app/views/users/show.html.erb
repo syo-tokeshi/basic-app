@@ -2,7 +2,8 @@
 <p>ユーザー名：<%= @user.name %></p>
 <p>email:<%= @user.email %></p>
 <p>パスワード:<%= @user.password %></p>
+
 <% if @user.id == @current_user.id %>
-<p><%= link_to "編集する", edit_user_path(@user) %></p>
-<p><%= link_to "削除する", user_path(@user),method: :delete,data: {confirm: "削除して大丈夫ですか?"}  %></p>
+  <p><%= link_to "編集する", edit_user_path(@user) %></p>
+  <p><%= link_to "削除する", user_path(@user),method: :delete,data: {confirm: "削除して大丈夫ですか?"}  %></p>
 <% end %>
