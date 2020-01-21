@@ -1,7 +1,29 @@
-・掲示板アプリを想定して作りました。
+ポートフォリオ名 : basic_app
 
-・登録したユーザーは好きように投稿できてそれに対してコメントできます。
+色んなユーザーが自由に書き込んだりそれにコメントできるアプリです
 
-・投稿した本人以外は投稿を編集できないようになっています。
+# DEMO
 
-・ログイン機能とページネーション、bootstrap,gemの'rails-i18n'をインストールしエラーメッセージの日本語化、等様々な機能を搭載しました
+"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+
+# 特徴
+
+基本的な認証機能やgemを使用しての開発（bootstrap,kaminari,i18n等）。シンプルながらも使い勝手がよくビューの体裁も整っている。
+
+# Requirement
+
+ruby '2.5.7'
+gem 'rails', '~> 5.2.1'
+gem "bootstrap"
+gem 'jquery-rails', '4.3.1'
+gem 'kaminari'
+gem 'rails-i18n', '~> 5.1'
+
+githubのurlとherokuのurlです。
+
+github.url → https://github.com/syo-tokeshi/basic-app
+heroku.url → https://fierce-reef-28276.herokuapp.com/
+
+# Author
+
+渡慶次 翔

@@ -10,17 +10,19 @@
   </head>
 
   <body>
+    <h1 class="text-center text-info display-5">basic_app!</h1>
     <% if session[:user_id] %>
      <ul class="link_top container">
-       <li>ユーザーID:<%= @current_user.name %></li>
+       <li><%= link_to "ユーザー名：#{@current_user.name}さん",user_path(@current_user) %></li>
        <li><%= link_to "ホーム",home_path %></li>
+       <li><%= link_to "サイトの説明書",about_path %></li>
        <li><%= link_to "ユーザー一覧",users_path %></li>
        <li><%= link_to "投稿一覧",posts_path %></li>
        <li><%= link_to "新規投稿",new_post_path %></li>
-       <li><%= link_to "ログアウト",logout_path,method: :post %></li>
+       <li><%= link_to "ログアウト",logout_path,method: :post,data: {confirm: "ログアウトしますか?"} %></li>
     <% else %>
-       <li><%= link_to "新規登録",new_user_path %></li>
-       <li><%= link_to "ログイン",login_path %></li>
+       <li class="ml-5 mb-1"><%= link_to "新規登録",new_user_path %></li>
+       <li class="ml-5"><%= link_to "ログイン",login_path %></li>
      </ul>
     <% end %>
 
@@ -28,9 +30,10 @@
     <h1 class="text-danger text-center display-3"><%= flash[:notice] %></h1>
   <% end %>
 
-  <div class="container text-center">
+  <div class="text-center">
     <%= yield %>
   </div>
-
+  <br>
+<p class="text-center">Copyright © basic_app</p>
   </body>
 </html>
