@@ -1,4 +1,4 @@
-*ポートフォリオ名 : basic_app
+# ポートフォリオ名 : basic_app
 
 色んなユーザーが自由に書き込んだりそれにコメントできるアプリです。
 
@@ -23,7 +23,7 @@ gem 'kaminari'
 
 gem 'rails-i18n', ' 5.1'
 
-githubのurlとherokuのurlです。
+# githubのurlとherokuのurlです。
 
 # github.url → https://github.com/syo-tokeshi/basic-app
 # heroku.url → https://fierce-reef-28276.herokuapp.com/
