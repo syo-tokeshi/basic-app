@@ -1,7 +1,11 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  # include CarrierWave::RMagick
-  include Cloudinary::CarrierWave
-  storage :file
+  include CarrierWave::RMagick
+  # include Cloudinary::CarrierWave
+  if Rails.env.production?
+     storage :fog
+   else
+     storage :file
+   end
   process convert: 'jpg'
   # 保存するディレクトリ名
   def store_dir
