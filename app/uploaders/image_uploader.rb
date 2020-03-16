@@ -1,5 +1,5 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  include CarrierWave::RMagick
+  # include CarrierWave::RMagick
   storage :file
   process convert: 'jpg'
   # 保存するディレクトリ名
