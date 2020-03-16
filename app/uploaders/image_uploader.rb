@@ -1,22 +1,21 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  
-   include Cloudinary::CarrierWave
+  include CarrierWave::MiniMagick
+process resize_to_limit: [400, 400]
 
-  process convert: 'jpg'
-  # 保存するディレクトリ名
-  def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
-  # thumb バージョン(width 400px x height 200px)
-  version :thumb do
-    process :resize_to_fit => [400, 200]
-  end
-  # 許可する画像の拡張子
-  def extension_white_list
-    %W[jpg jpeg gif png]
-  end
-  # 変換したファイルのファイル名の規則
-  def filename
-    "#{Time.zone.now.strftime('%Y%m%d%H%M%S')}.jpg" if original_filename.present?
-  end
+if Rails.env.production?
+  storage :fog
+else
+  storage :file
+end
+
+# アップロードファイルの保存先ディレクトリは上書き可能
+# 下記はデフォルトの保存先
+def store_dir
+  "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+end
+
+# アップロード可能な拡張子のリスト
+def extension_whitelist
+  %w(jpg jpeg gif png)
+end
 end

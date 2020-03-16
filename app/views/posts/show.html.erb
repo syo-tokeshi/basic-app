@@ -2,7 +2,7 @@
 <h3>タイトル：<%= @post.title %></h3>
 <h3>内容：<%= @post.content %></h3>
 <% if @post.image_url %>
-<h3>写真：<%= image_tag @post.image_url(:thumb) %></h3>
+<h3>写真：<%= image_tag @post.image_url %></h3>
 <% end %>
 
 いいねされた数！→<% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
