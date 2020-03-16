@@ -34,6 +34,7 @@ end
 
 group :production do
   gem 'pg'
+  gem 'fog', '1.42'
   end
 
   gem "bootstrap"
