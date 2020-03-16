@@ -1,6 +1,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
-   include CarrierWave::RMagick
-
+   # include CarrierWave::RMagick
+   include Cloudinary::CarrierWave
   if Rails.env.production?
     include Cloudinary::CarrierWave
   else
