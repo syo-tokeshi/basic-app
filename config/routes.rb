@@ -6,7 +6,8 @@ get "about" => "homes#about"
 get "login" => "users#login_form"
 post "login" => "users#login"
 post "logout" => "users#logout"
-
+post "likes/:post_id/create" => "likes#create"
+post "likes/:post_id/destroy" => "likes#destroy"
  resources :users
 
  resources :posts do
