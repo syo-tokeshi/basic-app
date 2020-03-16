@@ -1,5 +1,6 @@
 <%= form_for @post , url:post_path(@post) do |f| %>
  <h1>タイトル：<%= f.text_field :title %></h1>
  <h1>コンテンツ：<%= f.text_field :content %></h1>
+ <h1>写真 <%= f.file_field :image %></h1>
  <%= f.submit :"送信",class:"btn btn-info" %>
 <% end %>
