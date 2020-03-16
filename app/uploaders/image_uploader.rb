@@ -6,7 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
    else
      storage :file
    end
-  process convert: 'jpg'
+  # process convert: 'jpg'
   # 保存するディレクトリ名
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
