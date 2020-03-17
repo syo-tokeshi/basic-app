@@ -5,7 +5,7 @@
 <h3>写真：<%= image_tag @post.image.to_s  %></h3>
 <% end %>
 
-いいねされた数！→<% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+<h3>いいねされた数！→<% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
           <span class="fa fa-heart like-btn-unlike"></span>
         <% end %>
@@ -14,7 +14,7 @@
           <span class="fa fa-heart like-btn"></span>
         <% end %>
       <% end %>
-      <%= @likes_count %>
+      <%= @likes_count %></h3>
 <br>
 
 <% if @post.user_id == @current_user.id %>

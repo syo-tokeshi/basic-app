@@ -13,11 +13,11 @@ body{
 .post-comment {
   font-size: 25px;
 }
-// input{
-//   font-size: 20px;
-// }
-// input[type="submit"]{
-//     width: 200px;
-//     background-color: yellow;
-//     opacity: 0.8;
-// }
+
+.like-btn {
+  color: blue;
+}
+
+.like-btn-unlike {
+  color: red;
+}
