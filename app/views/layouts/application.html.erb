@@ -14,7 +14,8 @@
     <h1 class="text-center text-info display-5">basic_app!</h1>
     <% if session[:user_id] %>
      <ul class="link_top container">
-       <li><%= link_to "ユーザー名：#{@current_user.name}さん",user_path(@current_user) %></li>
+       <li class="my-name"><%=  "ようこそ #{@current_user.name}さん" %></li>
+       <li><%= link_to "自分の情報を確認する",user_path(@current_user) %></li>
        <li><%= link_to "ホーム",home_path %></li>
        <li><%= link_to "サイトの説明書",about_path %></li>
        <li><%= link_to "ユーザー一覧",users_path %></li>
