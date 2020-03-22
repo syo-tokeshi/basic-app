@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   before_action :authenticate_user #←ログインしている人しか投稿を閲覧出来ないように設定
   before_action :ensure_correct_post,{only:[:edit,:destroy,:update]}
+  before_action :set_post,{only:[:edit,:destroy,:update,:show]}
 
   def new
     @post = Post.new
@@ -28,24 +29,20 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @likes_count = Like.where(post_id: @post.id).count
   end
 
   def edit
-    @post = Post.find_by(id:params[:id])
   end
 
   def update
-    post = Post.find(params[:id])
-    post.update(post_params)
+    @post.update(post_params)
     flash[:notice] = "変更されました"
     redirect_to posts_path
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
+    @post.destroy
     flash[:notice] = "削除されました"
     redirect_to posts_path
   end
@@ -55,4 +52,7 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title,:content,:image)
   end
 
+  def set_post
+      @post = Post.find(params[:id])
+  end
 end

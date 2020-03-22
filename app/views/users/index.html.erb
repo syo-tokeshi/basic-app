@@ -8,7 +8,6 @@
         <th>名前</th>
         <th>Eメール</th>
         <th>入会日</th>
-        <th>投稿数</th>
       </tr>
     </thead>
     <% @users.each do |user| %>
@@ -17,7 +16,6 @@
         <td><%= link_to user.name,user_path(user) %></td>
         <td><%= link_to user.email,user_path(user) %></td>
         <td><%= link_to user.created_at.strftime("%Y-%m-%d %H:%M"),user_path(user) %></td>
-        <td><%= @posts %></td>
 
       </tr>
     <% end %>
