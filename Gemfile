@@ -13,7 +13,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'carrierwave'
 gem 'rmagick'
 gem "cloudinary"
-gem 'mini_magick',             '4.7.0'
+gem 'mini_magick',             '4.9.4'
 gem 'fog-aws' 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
