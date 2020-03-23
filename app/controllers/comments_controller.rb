@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def update
-    post = Post.find_by(params[:post_id])
+    post = Post.find(params[:post_id])
     comment = Comment.find(params[:id])
     comment.update(comment_params)
     flash[:notice] = "変更されました"
