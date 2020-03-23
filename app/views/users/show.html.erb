@@ -1,11 +1,11 @@
-<h1>ユーザー詳細</h1>
+<h1 class="text-danger">ユーザー詳細</h1>
 <p>ユーザー名：<%= @user.name %></p>
 <p>email:<%= @user.email %></p>
 <% if @user.id == @current_user.id %>
   <p><%= link_to "プロフィールを編集する", edit_user_path(@user) %></p>
   <p><%= link_to "退会する", user_path(@user),method: :delete,data: {confirm: "退会して大丈夫ですか?"}  %></p>
 <% end %>
-<h1>投稿内容</h1>
+<h1 class="text-danger">投稿内容</h1>
 <% if @user.posts.empty? %>
 <br>
 <h3>まだ投稿はありません</h3>

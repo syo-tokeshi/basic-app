@@ -1,12 +1,4 @@
-<%= form_tag('/books', method: :get) do %>
-  <%= label_tag :タイトル検索 %>
-  <%= text_field_tag :search_content %>
-  <%= submit_tag '検索',class:"btn btn-info mr-1" %><%= link_to 'Clear', books_path,class:"btn btn-warning" %>
-<% end %>
-
-<br>
-
-<h1 class="text-warning">みんなが好きな本一覧！</h1>
+<h1 class="text-danger">みんなが好きな本一覧！</h1>
 <br>
   <table class="table table-hover text-success">
    <tbody>
@@ -29,4 +21,44 @@
    </tbody>
 </table>
 
+<br>
+<br>
+<br>
+<h2>本についてあれこれ！</h2>
+<br>
+<h2>おすすめされている本の平均価格は？</h2>
+<h2 class="text-danger">→<%= @books_average.floor %>円</h2>
+<br>
+<h2 >一番安い本は？</h2>
+<br>
+  <table class="table table-hover text-success">
+   <tbody>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>値段</th>
+      </tr>
+    </thead>
+    <tr>
+      <td><%= @minimum_book.title %></td>
+      <td class="text-danger"><%= @minimum_book.price %>円</td>
+    </tr>
+   </tbody>
+</table>
+
+<h2 >じゃあ一番高い本は？</h2>
+<table class="table table-hover text-success">
+ <tbody>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>値段</th>
+    </tr>
+  </thead>
+  <tr>
+    <td><%= @miximum_book.title %></td>
+    <td class="text-danger"><%= @miximum_book.price %>円</td>
+  </tr>
+ </tbody>
+</table>
 <%= paginate @books %>

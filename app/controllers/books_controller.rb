@@ -8,11 +8,15 @@ class BooksController < ApplicationController
   end
 
   def index
-    if params[:search_content]   #部分一致でcontentを絞り込むためのwhere文
-    @books = Book.where('content Like ?',"%#{params[:search_content]}%").all.order(created_at: :desc).page(params[:page]).per(10)
-    else
       @books = Book.all.order(created_at: :desc).page(params[:page]).per(10)
-    end
+
+    minimum_book_price = Book.minimum(:price)
+    @minimum_book = Book.find_by(price:minimum_book_price)
+
+    @books_average = Book.average(:price)
+
+    miximum_book_price = Book.maximum(:price)
+    @miximum_book = Book.find_by(price:miximum_book_price)
   end
 
   def create
@@ -28,21 +32,26 @@ class BooksController < ApplicationController
   end
 
   def show
+    range = (13..42).to_a
+    @books_reviews = ["この本は最高に良い本だと思う！大変おすすめ！運がいいね！♪",
+                      "この本に巡り合えたあなたは世界で#{range.shuffle[0]}番目にラッキーな人間だ！最高の一日！",
+                      "明日にでもすぐに買ったほうがいいよ！売り切れる予感満載！"]
+
   end
 
   def edit
   end
 
   def update
-    @post.update(post_params)
+    @book.update(book_params)
     flash[:notice] = "変更されました"
-    redirect_to posts_path
+    redirect_to books_path
   end
 
   def destroy
-    @post.destroy
+    @book.destroy
     flash[:notice] = "削除されました"
-    redirect_to posts_path
+    redirect_to books_path
   end
 
   private
