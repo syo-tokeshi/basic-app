@@ -1,0 +1,32 @@
+<%= form_tag('/books', method: :get) do %>
+  <%= label_tag :タイトル検索 %>
+  <%= text_field_tag :search_content %>
+  <%= submit_tag '検索',class:"btn btn-info mr-1" %><%= link_to 'Clear', books_path,class:"btn btn-warning" %>
+<% end %>
+
+<br>
+
+<h1 class="text-warning">みんなが好きな本一覧！</h1>
+<br>
+  <table class="table table-hover text-success">
+   <tbody>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>コメント</th>
+        <th>値段</th>
+        <th>投稿日時</th>
+      </tr>
+    </thead>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= link_to book.title,book_path(book) %></td>
+      <td><%= link_to book.comment,book_path(book) %></td>
+      <td><%= link_to book.price,book_path(book) %>円</td>
+      <td><%= link_to book.created_at.strftime("%Y-%m-%d %H:%M"),book_path(book) %></td>
+    </tr>
+  <% end %>
+   </tbody>
+</table>
+
+<%= paginate @books %>

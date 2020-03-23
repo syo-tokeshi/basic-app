@@ -1,0 +1,7 @@
+<%= form_for @book , url:book_path(@book) do |f| %>
+ <h1>タイトル：<%= f.text_field :title %></h1>
+ <h1>コメント<%= f.text_field :comment %></h1>
+ <h1>値段<%= f.text_field :price %></h1>
+
+ <%= f.submit :"送信",class:"btn btn-info" %>
+<% end %>

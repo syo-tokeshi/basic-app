@@ -19,8 +19,10 @@
        <li><%= link_to "ホーム",home_path %></li>
        <li><%= link_to "サイトの説明書",about_path %></li>
        <li><%= link_to "ユーザー一覧",users_path %></li>
-       <li><%= link_to "投稿一覧",posts_path %></li>
-       <li><%= link_to "新規投稿",new_post_path %></li>
+       <li><%= link_to "掲示板投稿一覧",posts_path %></li>
+       <li><%= link_to "掲示板に投稿する",new_post_path %></li>
+       <li><%= link_to "好きな本一覧を見る",books_path %></li>
+       <li><%= link_to "好きな本を投稿する",new_book_path %></li>
        <li><%= link_to "ログアウト",logout_path,method: :post,data: {confirm: "ログアウトしますか?"} %></li>
     <% else %>
        <li class="ml-5 mb-1"><%= link_to "新規登録",new_user_path %></li>

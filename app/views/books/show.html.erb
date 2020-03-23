@@ -1,0 +1,15 @@
+<h1 class="display-4">投稿詳細</h1>
+<h3>タイトル：<%= @book.title %></h3>
+<h3>コメント<%= @book.comment %></h3>
+<h3>値段：<%= @book.price %></h3>
+
+<br>
+
+<% if @book.user_id == @current_user.id %>
+  <%= link_to "編集する", edit_book_path(@book),class:"mr-1" %>
+  <%= link_to "削除する", book_path(@book),method: :delete %>
+<% end %>
+
+<br>
+<br>
+<br>
