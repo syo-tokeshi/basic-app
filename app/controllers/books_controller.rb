@@ -26,7 +26,7 @@ class BooksController < ApplicationController
     flash[:notice] = "投稿されました"
     redirect_to books_path
     else
-      flash[:notice] = "両方とも入力してください"
+      flash[:notice] = "全て入力してください ※値段は数字のみでお願いします"
       redirect_to new_book_path
     end
   end
