@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>basic_app</title>
+    <title>まったーりアプ!</title>
       <%= csrf_meta_tags %>
       <%= csp_meta_tag %>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +11,7 @@
   </head>
 
   <body>
-    <h1 class="text-center text-info display-5">basic_app!</h1>
+    <h1 class="text-center text-info display-5">まったーりアプ!</h1>
     <% if session[:user_id] %>
      <ul class="link_top container">
        <li class="my-name"><%=  "ようこそ #{@current_user.name}さん" %></li>
@@ -38,6 +38,6 @@
     <%= yield %>
   </div>
   <br>
-<p class="text-center">Copyright © basic_app</p>
+<p class="text-center">Copyright © まったーりアプ!</p>
   </body>
 </html>
