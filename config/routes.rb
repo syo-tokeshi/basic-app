@@ -9,13 +9,8 @@ post "logout" => "users#logout"
 post "likes/:post_id/create" => "likes#create"
 post "likes/:post_id/destroy" => "likes#destroy"
 
- resources :users do
-   resource :relationships, only: [:create, :destroy]
-    get :follows, on: :member
-    get :followers, on: :member
-  end
+ resources :users
  
-
  resources :posts do
    resources :comments, only: [:create,:destroy,:edit,:update]
  end
