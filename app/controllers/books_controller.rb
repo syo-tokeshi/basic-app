@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :authenticate_user #←ログインしている人しか投稿を閲覧出来ないように設定
-  # before_action :ensure_correct_book,{only:[:edit,:destroy,:update]}
+  before_action :ensure_correct_book,{only:[:edit,:destroy,:update]}
   before_action :set_book,{only:[:edit,:destroy,:update,:show]}
 
   def new
@@ -33,10 +33,9 @@ class BooksController < ApplicationController
 
   def show
     range = (13..42).to_a
-    @books_reviews = ["この本は最高に良い本だと思う！大変おすすめ！運がいいね！♪",
-                      "この本に巡り合えたあなたは世界で#{range.shuffle[0]}番目にラッキーな人間だ！最高の一日！",
+    @books_reviews = ["この本は最高に良い本だと思う！大変おすすめ！買った方がいいよ！♪",
+                      "この本に巡り合えたあなたは世界で#{range.shuffle[0]}番目にラッキーな人間だ！おすすめの本だよ！",
                       "明日にでもすぐに買ったほうがいいよ！売り切れる予感満載！"]
-
   end
 
   def edit
