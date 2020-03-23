@@ -11,13 +11,14 @@
   </head>
 
   <body>
-    <h1 class="text-center text-info display-5">まったーりアプ!</h1>
+    <br>
+    <h1 class="text-center display-1 aply-title">まったーりアプ!</h1>
     <% if session[:user_id] %>
      <ul class="link_top container">
        <li class="my-name"><%=  "ようこそ #{@current_user.name}さん" %></li>
        <li><%= link_to "自分の情報を確認する",user_path(@current_user) %></li>
        <li><%= link_to "ホーム",home_path %></li>
-       <li><%= link_to "サイトの説明書",about_path %></li>
+       <li><%= link_to "このアプリについて",about_path %></li>
        <li><%= link_to "ユーザー一覧",users_path %></li>
        <li><%= link_to "掲示板投稿一覧",posts_path %></li>
        <li><%= link_to "掲示板に投稿する",new_post_path %></li>
