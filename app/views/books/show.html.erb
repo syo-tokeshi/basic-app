@@ -1,7 +1,9 @@
 <h1 class="text-danger">本の詳細</h1>
 <h2 class="display-4 text-warning">タイトル：<%= @book.title %></h2>
+<h2 class="display-4 text-warning">カテゴリー：<%= @book.category %></h2>
 <h2 class="display-4 text-warning">コメント：<%= @book.comment %></h2>
 <h2 class="display-4 text-warning">値段：<%= @book.price %>円</h2>
+<h2 class="display-4 text-warning">投稿日時：<%= @book.created_at.strftime("%Y-%m-%d %H:%M") %></h2>
 <br>
 <h2 class="text-danger">この本に対する推薦文↓recommend!</h2>
 <br>

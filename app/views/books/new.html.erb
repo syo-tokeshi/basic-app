@@ -1,6 +1,7 @@
 <h1 class="text-danger">好きな本を投稿する！</h1>
 <%= form_for @book do |f| %>
   <h1>タイトル：<%= f.text_field :title %></h1>
+  <h1>カテゴリー：<%= f.select :category, ['一般書籍','小説', '文庫','単行本', '雑誌'] %></h1>
   <h1>コメント：<%= f.text_field :comment %></h1>
   <h1 >値段：<%= f.text_field :price %>円</h1>
 <%= f.submit :"投稿する",class:"btn btn-info form-control w-25" %>
