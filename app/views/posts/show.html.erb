@@ -1,9 +1,6 @@
 <h1 class="display-4">投稿詳細</h1>
 <h3>タイトル：<%= @post.title %></h3>
 <h3>内容：<%= @post.content %></h3>
-<% if @post.image_url %>
-<h3>写真：<%= image_tag @post.image.to_s  %></h3>
-<% end %>
 
 <h3>いいねされた数！→<% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
