@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
   before_action :authenticate_user #←ログインしている人しか投稿を閲覧出来ないように設定
-  before_action :ensure_correct_book,{only:[:edit,:destroy,:update]}
   before_action :set_book,{only:[:edit,:destroy,:update,:show]}
 
   def new
@@ -48,7 +47,7 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book.destroy
+    @book.delete
     flash[:notice] = "削除されました"
     redirect_to books_path
   end
