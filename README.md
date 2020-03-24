@@ -21,7 +21,7 @@ gem 'jquery-rails', '4.3.1'
 
 gem 'kaminari'
 
-gem 'rails-i18n', ' 5.1'
+gem 'rails-i18n', ' 5.1
 
 # githubのurlとherokuのurlです。
 
