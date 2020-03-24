@@ -1,7 +1,10 @@
 <h1 class="display-4">投稿詳細</h1>
+<br>
 <h3>タイトル：<%= @post.title %></h3>
 <h3>内容：<%= @post.content %></h3>
-
+<% if @post.user %> <%# もし投稿したユーザーがいたらユーザーネームを表示 %>
+<h3>投稿者：<%= @post.user.name %>さん</h3>
+<% end %>
 <h3>いいねされた数！→<% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
         <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
           <span class="fa fa-heart like-btn-unlike"></span>
@@ -21,7 +24,7 @@
 
 <br>
 <br>
-<h4>コメント一覧</h4>
+<h3>コメント一覧</h3>
 
  <% if @post.comments.empty? %>
  <br>
